@@ -3,10 +3,15 @@ import streamlit as st
 from PIL import Image
 from openai import OpenAI
 import os
+from dotenv import load_dotenv
+
+#ローカル環境で動くためのコード
+if os.path.exists(".env"):
+    load_dotenv()
 
 # OpenAI APIのキーを環境変数から取得
 client = OpenAI(
-    api_key=os.environ.get("OPENAI_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get("OPENAI_API_KEY"),  
 )
 
 st.title("クロノクエスト")
